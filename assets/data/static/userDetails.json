@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "role": "",
+    "firstName":"John",
+    "lastName": "Doe",
+    "contactNumber": "+63 9055129168"
+  },
+  {
+    "id": 2,
+    "username": "staff",
+    "role": "",
+    "firstName":"Sarah",
+    "lastName": "Jane",
+    "contactNumber": "+63 9055129168"
+  }
+]
