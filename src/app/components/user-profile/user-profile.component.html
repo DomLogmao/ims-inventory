@@ -1,0 +1,18 @@
+<div class="h-full ml-14 my-14 md:ml-64">
+    <div class="py-3 px-5 mb-4 bg-gray-100 text-gray-900 rounded-md text-sm border border-gray-200">
+        <ul class="flex">
+            <li><a routerLink="/main/dashboard" class="underline font-semibold">Home</a></li>
+            <li><span class="mx-2">/</span></li>
+            <li><a routerLink="/main/user-profile" class="underline font-semibold">Profile</a></li>
+        </ul>
+    </div>
+    <div class="flex flex-wrap">
+        <div class="w-full lg:w-8/12 px-4">
+            <app-user-profile-main></app-user-profile-main>
+        </div>
+        <div class="w-full lg:w-4/12 px-4">
+            <app-user-profile-card></app-user-profile-card>
+        </div>
+    </div>
+
+</div>

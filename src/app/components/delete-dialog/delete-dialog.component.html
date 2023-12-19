@@ -1,0 +1,30 @@
+<div class="h-auto ml-14 mt-14 md:ml-64">
+    <div class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex bg-gray-900 bg-opacity-75">
+        <div class="relative w-auto my-6 mx-auto max-w-xl">
+          <!--content-->
+          <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+            <!--header-->
+            <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+              <h3 class="text-3xl font-semibold">
+                {{title}}
+              </h3>
+            </div>
+            <!--body-->
+            <div class="relative p-6 flex-auto">
+              <p class="my-4 text-blueGray-500 text-lg leading-relaxed">
+                {{message}}
+              </p>
+            </div>
+            <!--footer-->
+            <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+              <button mat-button [mat-dialog-close]="data" class="bg-red-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                {{btnCloseText}}
+              </button>
+              <button mat-button mat-dialog-close (click)="delete()" class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                {{btnOkText}}  
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
