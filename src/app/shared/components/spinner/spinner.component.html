@@ -1,0 +1,34 @@
+
+    <div *ngIf="loading; else content">
+
+      <div class="spinner__loading">
+        <div>
+          <mat-progress-spinner
+            diameter="60"
+            [value]="value"
+            mode="determinate">
+            </mat-progress-spinner>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #content>
+
+      <!-- Here is where your loaded content goes! -->
+      <div>
+        Content is loaded correctly.
+        <br><br>
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="loadContent()">
+          Reload data
+        </button>
+      </div>
+    </ng-template>
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

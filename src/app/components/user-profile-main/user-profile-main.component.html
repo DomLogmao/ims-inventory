@@ -1,0 +1,198 @@
+<div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-200 border-0">
+    <div class="rounded-t bg-gray-300 mb-0 px-6 py-6">
+        <div class="text-center flex justify-between">
+            <h6 class="text-blueGray-700 text-xl font-bold">My account</h6>
+            <label for="toogleA" class="flex items-center cursor-pointer">
+                <!-- toggle -->
+                <div class="relative">
+                    <!-- input -->
+                    <input id="toogleA" type="checkbox" class="sr-only" (change)="enable($event)" />
+                    <!-- line -->
+                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                    <!-- dot -->
+                    <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                </div>
+                <!-- label -->
+            </label>
+        </div>
+    </div>
+    <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+        <form [formGroup]="userProfileGroup" autocomplete="off" novalidate
+            (ngSubmit)="submitUserProfileGroup(userProfileGroup.value)">
+            <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                User Information
+            </h6>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                            Email address
+                        </label>
+                        <input type="email" [readonly]='allowEdit' formControlName="email" id="email"
+                            name="email"
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                        <div *ngIf="userProfileGroup.hasError('required', 'email')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Email is required.</div>
+                        <div *ngIf="userProfileGroup.hasError('email', 'email')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Email is invalid.</div>
+                        <div *ngIf="userProfileGroup.hasError('maxlength', 'email')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Email must not exceed more
+                            than 20 characters.</div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                            First Name
+                        </label>
+                        <input type="text" [readonly]='allowEdit' formControlName="firstname" id="firstname"
+                            name="firstname"
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                        <div *ngIf="userProfileGroup.hasError('required', 'firstname')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Firstname is required.
+                        </div>
+                        <div *ngIf="userProfileGroup.hasError('maxlength', 'firstname')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Firstname must not exceed
+                            more than 20 characters.</div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                            Last Name
+                        </label>
+                        <input type="text" [readonly]='allowEdit' formControlName="lastname" id="lastname"
+                            name="lastname"
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                        <div *ngIf="userProfileGroup.hasError('required', 'lastname')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Lastname is required.</div>
+                        <div *ngIf="userProfileGroup.hasError('maxlength', 'lastname')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Lastname must not exceed
+                            more than 20 characters.</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mt-6 border-b-1 border-gray-300" />
+
+            <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                Contact Information
+            </h6>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                            Mobile Number
+                        </label>
+                        <input type="text" [readonly]='allowEdit' formControlName="mobileNo" id="mobileNo"
+                            name="mobileNo"
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                        <div *ngIf="userProfileGroup.hasError('required', 'mobileNo')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Mobile number is required.
+                        </div>
+                        <div *ngIf="userProfileGroup.hasError('pattern', 'mobileNo')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Numbers only</div>
+                        <div *ngIf="userProfileGroup.hasError('maxlength', 'mobileNo')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Mobile number must not
+                            exceed more than 11 characters.</div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                            Telephone Number
+                        </label>
+                        <input type="email" [readonly]='allowEdit' formControlName="telephoneNo" id="telephoneNo"
+                            name="telephoneNo"
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                        <div *ngIf="userProfileGroup.hasError('pattern', 'telephoneNo')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Numbers only</div>
+                        <div *ngIf="userProfileGroup.hasError('maxlength', 'telephoneNo')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Telephone number must not
+                            exceed more than 7 characters.</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mt-6 border-b-1 border-gray-300" />
+
+            <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                Address Information
+            </h6>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-12/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                            Address
+                        </label>
+                        <input type="text" [readonly]='allowEdit' formControlName="address" id="address" name="address"
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                        <div *ngIf="userProfileGroup.hasError('maxlength', 'address')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Address must not exceed
+                            more than 50 characters.</div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-4/12 px-4">
+                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                        Region
+                    </label>
+                    <ng-select [readonly]='allowEdit' formControlName="region" id="region" namme="region" (change)="regionChange($event)" [items]="regions" bindLabel="name" bindValue="id" [(ngModel)]="selectedRegion"
+                    class="border-0 px-1 py-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                    </ng-select>
+                </div>
+
+                <div class="w-full lg:w-4/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                            Province
+                        </label>
+                        <ng-select [readonly]='allowEdit' formControlName="province" id="province" namme="province" (change)="provinceChange($event)" [items]="provinces" bindLabel="name" bindValue="id" [(ngModel)]="selectedProvince"
+                        class="border-0 px-1 py-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="w-full lg:w-4/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                            City
+                        </label>
+                        <ng-select [readonly]='allowEdit' formControlName="city" id="city" namme="city" [items]="cities" bindLabel="name" bindValue="id" [(ngModel)]="selectedCity"
+                        class="border-0 px-1 py-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                        </ng-select>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-4/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                            Postal Code
+                        </label>
+                        <input type="text" [readonly]='allowEdit' formControlName="postalCode" id="postalCode"
+                            name="postalCode"
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                        <div *ngIf="userProfileGroup.hasError('maxlength', 'postalCode')"
+                            class="text-xs font-normal max-w-full flex-initial text-red-500">Postal must not exceed more
+                            than 4 characters.</div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-4/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                            Country
+                        </label>
+                        <input type="text" [readonly]='allowEdit' formControlName="country" id="country" name="country"
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center items-center mt-5 px-4 w-full mb-5">
+                <button [disabled]="!userProfileGroup.valid"
+                    class="bg-red-600 text-white active:bg-red-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 content-start"
+                    type="submit" [hidden]="allowEdit">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

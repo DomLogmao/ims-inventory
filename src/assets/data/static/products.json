@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Neozep",
+    "description": "Used for the relief of clogged nose, runny nose, postnasal drip, itchy and watery eyes",
+    "price": 210
+  },
+  {
+    "id": 2,
+    "name": "Alaxan",
+    "description": "Used for the relief of mild to moderately severe pain of muscoskeletal origin such as muscle pain (myalgia), arthritis, rheumatism, sprain and strain",
+    "price": 110
+  },
+  {
+    "id": 3,
+    "name": "Amoxil",
+    "description": "It is used to treat bacterial infections, such as chest infections (including pneumonia) and dental abscesses",
+    "price": 710
+  }
+]
